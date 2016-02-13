@@ -1,0 +1,9 @@
+<form action="http://weko/nijl/image-annotation" method="post" class="annometa" onsubmit="set_form_annot(this);">
+  <input type="submit" name="update" value="save" id="exec"/>
+<input type="hidden" name="uri" value="https://wallchart.repon.org/weko_images/kakezu_IMNH/jpeg/IMNH0040-3.jpg"/>
+<input type="hidden" name="annojson"/>
+<input type="hidden" name="width"/>
+<input type="hidden" name="height"/>
+<input type="hidden" name="edit" value="1"/>
+</form>
+
