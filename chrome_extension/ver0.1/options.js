@@ -4,6 +4,11 @@ $(function(){
 	localStorage["anno_url"] = $("#anno_url").val();
 	localStorage["userid"] = $("#userid").val();
 	localStorage["userpass"] = $("#userpass").val();
+	localStorage["debug_flg"]= $("#debug_flg").prop("checked");
+	window.close();
+    });
+    $("#close").click(function(){
+	window.close();
     });
     // login funciton
     $("#login").click(function (){
@@ -18,10 +23,17 @@ $(function(){
 	    data: {"_proc_login":1,"user":userid,"pwd":userpass}
 	}).success(function(data){
 	    localStorage["status"] = "loggedin";
+	    if(localStorage["debug_flg"]&&localStorage["debug_flg"]=="true"){
+		console.log("success:");
+		console.log(data);
+	    }
 	    $("#status").text(localStorage["status"]);
 	}).error(function(data){
 	    localStorage["status"] = "error";
-	    console.log("error:"+data);
+	    if(localStorage["debug_flg"]&&localStorage["debug_flg"]=="true"){
+		console.log("error:");
+		console.log(data);
+	    }
 	    $("#status").text(localStorage["status"]);
 	});
     });
@@ -36,10 +48,17 @@ $(function(){
 	    data: {"logout":1}
 	}).success(function(data){
 	    localStorage["status"] = "loggedout";
+	    if(localStorage["debug_flg"]&&localStorage["debug_flg"]=="true"){
+		console.log("success:");
+		console.log(data);
+	    }
 	    $("#status").text(localStorage["status"]);
 	}).error(function(data){
 	    localStorage["status"] = "error";
-	    console.log("error:"+data);
+	    if(localStorage["debug_flg"]&&localStorage["debug_flg"]=="true"){
+		console.log("error:")
+		console.log(data);
+	    }
 	    $("#status").text(localStorage["status"]);
 	});
     });
@@ -59,5 +78,12 @@ $(function(){
     if(localStorage["status"]){
 	$("#status").text(localStorage["status"]);
     }
+
+    if(localStorage["debug_flg"] && localStorage["debug_flg"]=="true"){
+	$("#debug_flg").prop("checked",true);
+    }else{
+	$("#debug_flg").prop("checked",false);
+    }
+    
 });
 
