@@ -64,4 +64,10 @@ $(function(){
 			  image.src = url;
 		      }
 		     );
+	if(localStorage["debug_flg"]&&localStorage["debug_flg"]=="true"){
+	    anno.addHandler("onAnnotationCreated", function(annotation){
+		console.log("onAnnotationCreated");
+		console.log(annotation);
+	    });
+	}
 });
