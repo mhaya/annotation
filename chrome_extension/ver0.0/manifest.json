@@ -1,0 +1,39 @@
+{
+  "name": "anno",
+  "description": "anno",
+  "version": "0.0",
+  "permissions": [
+    "activeTab",
+    "https://*/*",
+    "http://*/*",
+      "storage",
+      "cookies"
+  ],
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+               "128": "icon128.png" },
+    
+  "content_scripts":[{
+      "matches":[
+	  "http://*/*",
+	  "https://*/*"
+      ],
+      "css":["annotorious.css"],
+      "js":["jquery-1.12.0.min.js","annotorious.min.js","content.js"]
+  }],
+  "background": {
+      "scripts": ["jquery-1.12.0.min.js","background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+      "default_title": "anno",
+      "default_popup": "popup.html"
+  },
+/*
+  "chrome_url_overrides": {
+    "newtab": "popup.html"
+  },
+*/
+  "options_page": "options.html",
+  "manifest_version": 2
+}

@@ -1,7 +1,7 @@
 {
-  "name": "anno",
-  "description": "anno",
-  "version": "0.0",
+  "name": "古典籍画像アノテーションシステムプラグイン",
+  "description": "画像に対するアノテーションを可能にするプラグインです",
+  "version": "0.1",
   "permissions": [
     "activeTab",
     "https://*/*",
@@ -9,18 +9,11 @@
       "storage",
       "cookies"
   ],
-  "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-               "128": "icon128.png" },
-    
-  "content_scripts":[{
-      "matches":[
-	  "http://*/*",
-	  "https://*/*"
-      ],
-      "css":["annotorious.css"],
-      "js":["jquery-1.12.0.min.js","annotorious.min.js","content.js"]
-  }],
+    "icons": {
+	"16": "icon16.png",
+	"48": "icon48.png",
+	"128": "icon128.png"
+   },
   "background": {
       "scripts": ["jquery-1.12.0.min.js","background.js"],
     "persistent": false
